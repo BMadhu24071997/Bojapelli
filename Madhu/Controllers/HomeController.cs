@@ -63,7 +63,7 @@ namespace Madhu.Controllers
             ContactFormModel contactUs = new ContactFormModel();
 
             contactUs.Email = "madhu.up.mb@gmail.com";
-            contactUs.Password = "shxwodfmjunnqjua"; // Email SMTP(simple Mail Transfer Protocol) Password
+            contactUs.Password = "shxwodfmjunnqjua"; // Email SMTP(simple Mail Transfer Protocol)
             contactUs.Subject = model.Subject;
             contactUs.Mobile = model.Mobile;
             contactUs.ToEmail = "bmadhu2407@gmail.com";
