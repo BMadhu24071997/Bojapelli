@@ -1,0 +1,59 @@
+.modal-content {
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    border-bottom: none;
+    font-size: 18px;
+}
+
+.modal-body {
+    font-size: 16px;
+    padding: 20px;
+}
+
+.contact-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .contact-link:hover {
+        text-decoration: underline;
+    }
+
+.modal-footer {
+    border-top: none;
+}
+
+.btn-primary {
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Overlay to Disable Dashboard */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040; /* Higher than dashboard content */
+}
+
+/* Mobile-Responsive */
+@media (max-width: 576px) {
+    .modal-dialog {
+        max-width: 90%;
+    }
+
+    .modal-body {
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        font-size: 14px;
+    }
+}

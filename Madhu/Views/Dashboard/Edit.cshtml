@@ -1,0 +1,130 @@
+﻿@model MyUsers
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<div class="card-body px-lg-5 py-lg-5">
+    <div class="text-center text-muted mb-4">
+     @*   <small>Sign up with credentials</small>*@
+    </div>
+    <form role="form" asp-contoller="Dashboard" asp-action="Edit">
+        <div class="form-group">
+            <div class="input-group input-group-merge input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                </div>
+                <input class="form-control" placeholder="Username" type="text" asp-for="@Model.UserName">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group input-group-merge input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                <input class="form-control" placeholder="Password" type="password" asp-for="@Model.Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group input-group-merge input-group-alternative">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                </div>
+                <input class="form-control" placeholder="Email" type="email" asp-for="@Model.Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group input-group-merge input-group-alternative">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-single-copy-04"></i></span>
+                </div>
+                <input class="form-control" placeholder="First Name" type="text" asp-for="@Model.FirstName">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group input-group-merge input-group-alternative">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-single-copy-04"></i></span>
+                </div>
+                <input class="form-control" placeholder="Last  Name" type="text" asp-for="@Model.LastName">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group input-group-merge input-group-alternative">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                </div>
+                <label class="form-control">Date of Birth</label>
+                <input class="form-control" placeholder="Date of Birth" type="datetime-local" asp-for="@Model.DateofBirth">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="input-group input-group-merge input-group-alternative">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-map-big"></i></span>
+                </div>
+                <label class="form-control">Location</label>
+                <select class="form-control" asp-for="@Model.Location" id="Location" name="Location">
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Chennai">Chennai</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group input-group-merge input-group-alternative">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-flag"></i></span>
+                </div>
+
+                <label class="form-control">Indian</label>
+                <input type="checkbox" class="form-control" id="Nationality" asp-for="@Model.Nationality" />
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group input-group-merge input-group-alternative">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                </div>
+                <label class="form-control">Gender</label>
+                <select class="form-control" asp-for="@Model.Gender" id="Gender" name="Gender">
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                    <option value="O">Others</option>
+
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group input-group-merge input-group-alternative">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-mobile"></i></span>
+                </div>
+                <input class="form-control" placeholder="Mobile" type="number" asp-for="@Model.Mobile">
+            </div>
+        </div>
+        @* <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>
+        <div class="row my-4">
+        <div class="col-12">
+        <div class="custom-control custom-control-alternative custom-checkbox">
+        <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+        <label class="custom-control-label" for="customCheckRegister">
+        <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
+        </label>
+        </div>
+        </div>
+        </div>*@
+        <div class="text-center">
+          
+            <button type="Submit" class="btn btn-primary mt-4">Save Changes</button>
+        </div>
+    </form>
+</div>
+
