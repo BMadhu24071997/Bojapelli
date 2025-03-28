@@ -20,8 +20,9 @@ namespace Madhu.Controllers
         {
             try
             {
-                var isUserExists = _db.Users.Find(HttpContext.Session.GetString("UserName"));
+                var isUserExists = _db.Users.Find(HttpContext.Session.GetString("UserName")); // getting user details using session
                 return View(isUserExists);
+
 
             }
             catch
