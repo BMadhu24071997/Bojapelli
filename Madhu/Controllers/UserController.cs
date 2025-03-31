@@ -1,6 +1,7 @@
 ﻿using Madhu.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using System.Net.Mail;
 
 namespace Madhu.Controllers
 {
@@ -49,7 +50,7 @@ namespace Madhu.Controllers
 
                         HttpContext.Session.SetString("UserName", isUserExists.UserName);
                         HttpContext.Session.SetString("SignIn", "True");
-                        if(isUserExists.UserStatus == "Suspended")
+                        if (isUserExists.UserStatus == "Suspended")
                         {
                             HttpContext.Session.SetString("Suspended", "True");
                         }
@@ -207,6 +208,78 @@ namespace Madhu.Controllers
             }
 
 
+        }
+        public IActionResult ForgotPassword()                                  //This is for creating Forgotpassword page
+        {
+            try
+            {
+                if (HttpContext.Session.GetString("SignIn") == "True")    //If user is already signin then you no need to show sign in
+                {
+                    return RedirectToAction("Index", "Dashboard");
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        [HttpPost]
+        public IActionResult ForgotPassword(MySignIn signIn)                                  //This is for creating Forgotpassword page
+        {
+            try
+            {
+                var _userobj = _db.Users.Find(signIn.UserName);
+
+                if (_userobj == null)
+                {
+                    ModelState.AddModelError("UserName", "User doesn't exist please enter valid user");
+                    return View();
+                }
+                else
+                {
+                    ContactFormModel contactUs = new ContactFormModel();
+
+                    contactUs.Email = "madhu.up.mb@gmail.com";
+                    contactUs.Password = "shxwodfmjunnqjua"; // Email SMTP(simple Mail Transfer Protocol)
+                    contactUs.Subject = "Your Password";
+                    contactUs.ToEmail = _userobj.Email;
+                    contactUs.Body = "Your password for username:" + _userobj.UserName + " is " + _userobj.Password;
+
+
+                    using (MailMessage mm = new MailMessage(contactUs.Email, contactUs.ToEmail))
+                    {
+                        mm.Subject = contactUs.Subject;
+                        mm.Body = contactUs.Body;
+                        mm.IsBodyHtml = false;
+                        using (SmtpClient smtp = new SmtpClient())
+                        {
+                            NetworkCredential NetworkCred = new NetworkCredential(contactUs.Email, contactUs.Password);
+                            smtp.UseDefaultCredentials = false;
+                            smtp.EnableSsl = true;
+                            smtp.Host = "smtp.gmail.com";
+                            smtp.Credentials = NetworkCred;
+                            smtp.Port = 587;
+                            smtp.Send(mm);
+                            ViewBag.Message = "Email sent";
+                        }
+                    }
+
+                    return View();
+
+                }
+
+
+                return View();
+            }
+
+            catch
+            {
+                return View();
+            }
         }
 
 
