@@ -23,5 +23,6 @@ namespace Madhu.Models
         public long Mobile { get; set; }
 
         public string UserStatus { get; set; } = "New";
+        public string EmailStatus { get; set; } 
     }
 }
