@@ -1,0 +1,168 @@
+﻿@model EmailVerification
+@{
+    ViewData["Title"] = "VerifyEmail";
+    Layout = "~/Views/Shared/_ArgonPlain.cshtml";
+}
+
+
+<!-- Main content -->
+<div class="main-content">
+    <!-- Header -->
+    <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+        <div class="container">
+            <div class="header-body text-center mb-7">
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-lg-6 col-md-8 px-5">
+                        <h1 class="text-white">Welcome!</h1>
+                        <p class="text-lead text-white">Verify your Email to access your complete dashboard</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="separator separator-bottom separator-skew zindex-100">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+    </div>
+    <!-- Page content -->
+    <div class="container mt--8 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7">
+                <div class="card bg-secondary border-0 mb-0">
+                     <div class="card-header bg-transparent pb-5">
+                        @* <div class="text-muted text-center mt-2 mb-3"><small>Sign in with</small></div>
+                    <div class="btn-wrapper text-center">
+                    <a href="#" class="btn btn-neutral btn-icon">
+                    <span class="btn-inner--icon"><img src="../assets/img/icons/common/github.svg"></span>
+                    <span class="btn-inner--text">Github</span>
+                    </a>
+                    <a href="#" class="btn btn-neutral btn-icon">
+                    <span class="btn-inner--icon"><img src="../assets/img/icons/common/google.svg"></span>
+                    <span class="btn-inner--text">Google</span>
+                    </a>
+                    </div>
+                    </div>*@
+                    <div class="card-body px-lg-5 py-lg-5">
+                        <div class="text-center text-muted mb-4">
+                      
+                        </div>
+                        <form role="form" asp-controller="User" asp-action="VerifyEmail" method="post">
+
+                            @if (Context.Session.GetString("OTPGenerated") != "True")
+                            {
+                                <div class="form-group mb-3">
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                        </div>
+                                        <input asp-for="@Model.Email" class="form-control" disabled />
+
+                                    </div>
+                                        <div class="btn"> <a asp-controller="Dashboard" asp-action="Edit" asp-route-UserName="@Model.UserName">Edit</a></div>
+                                
+                                </div>
+
+
+
+                                    <td><div class="btn"><a asp-controller="User" asp-action="SendOTP" asp-route-UserName="@Model.UserName" class="btn btn-primary my-4">Send OTP </a></div></td>
+                        
+
+                        
+                            }
+                            else
+                            {
+
+                        <h3> Enter the OTP, OTP has been sent to Your Email </h3>
+                        <div class="form-group mb-3">
+                            <div class="input-group input-group-merge input-group-alternative">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
+                                </div>
+
+                                <input class="form-control" asp-for="@Model.OTP" placeholder="Enter OTP" type="number" value="Enter OTP">
+                                <span asp-validation-for="@Model.OTP" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-primary my-4" name="btnsubmit" value="Validate" />
+                                    @*<td><div class="btn"> <a asp-controller="Dashboard" asp-action="ValidateOTP" asp-route-OTP="@Model.OTP">Validate</a></div></td>*@
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-primary my-4" type="button">Back To Home</a>
+
+                        </div>
+                            }
+
+                    <div class="text-center">
+                        <a asp-controller="User" asp-action="SignOut" class="btn btn-primary my-4">Sign Out </a>
+                    </div>
+
+                    </form>
+                        @if(Context.Session.GetString("OTPGenerated") == "True")
+                        {
+
+
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                     
+
+                    
+
+
+                        <a onclick="startResendTimer()" id="resendBtn" asp-controller="User" asp-action="SendOTP" asp-route-Username="@Context.Session.GetString("UserName")" disabled class="disabledAnchor">ReSend OTP</a>
+
+
+
+
+                           
+                        <p id="timer"></p>
+                        <script>
+
+                            window.onload = ancorDisabled;
+                            window.onload = startResendTimer;
+                            let timer;
+                            let countdown = 60; // Set the countdown duration in seconds
+                            function ancorDisabled() {
+                                document.getElementById('resendBtn').disabled = true;
+                            }
+                            function startResendTimer() {
+                                // Disable the button during the countdown
+                                document.getElementById('resendBtn').disabled = true;
+
+                                // Start the countdown
+                                timer = setInterval(updateTimer, 1000);
+                            }
+
+                            function updateTimer() {
+                                const timerElement = document.getElementById('timer');
+
+                                if (countdown > 0) {
+                                    timerElement.textContent = `Resend in ${countdown} seconds`;
+                                    countdown--;
+                                } else {
+                                    // Enable the button when the countdown reaches zero
+                                    document.getElementById('resendBtn').disabled = false;
+                                    timerElement.textContent = '';
+
+                                    // Reset countdown for the next attempt
+                                    countdown = 60;
+
+                                    // Stop the timer
+                                    clearInterval(timer);
+                                }
+                            }
+
+                        </script>
+                        <style>
+                            .disabledAnchor a {
+                                pointer-events: none !important;
+                                cursor: default;
+                                color: white;
+                            }
+                        </style>
+                        }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
