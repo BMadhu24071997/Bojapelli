@@ -24,7 +24,7 @@
             <!-- Brand -->
             <div class="sidenav-header  align-items-center">
                 <a style="color:purple" class="navbar-brand" asp-controller="Home" asp-action="Index">
-                 Madhu
+                    <img style="height:600px;width:500px;" src="~/assets/img/logo.png" class="navbar-brand-img" alt="...">
                 </a>
             </div>
             <div class="navbar-inner">
@@ -32,40 +32,40 @@
                 <div class="collapse navbar-collapse" id="sidenav-collapse-main">
                     <!-- Nav items -->
                     <ul class="navbar-nav">
-                      @*  <li class="nav-item">*@
-                            <a class="nav-link active"asp-controller="Dashboard" asp-action="Index">
-                                <i class="ni ni-tv-2 text-primary"></i>
-                                <span class="nav-link-text">Dashboard</span>
-                            </a>
+                        @*  <li class="nav-item">*@
+                        <a class="nav-link active" asp-controller="Dashboard" asp-action="Index">
+                            <i class="ni ni-tv-2 text-primary"></i>
+                            <span class="nav-link-text">Dashboard</span>
+                        </a>
                         </li>
-                         @if (Context.Session.GetString("Admin") == "True")
-                    {
+                        @if (Context.Session.GetString("Admin") == "True")
+                        {
 
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Admin" asp-action="AllLoanRequests">
-                                <i class="fa">&#xf0d6;</i>
-                                <span class="nav-link-text">All Loan Requests</span>
-                            </a>
-                        </li>
-                    }
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Admin" asp-action="AllLoanRequests">
+                                    <i class="fa">&#xf0d6;</i>
+                                    <span class="nav-link-text">All Loan Requests</span>
+                                </a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Dashboard" asp-action="MoneyTransfer">
-                                <i class= "fa">&#xf0d6;</i>
+                                <i class="fa">&#xf0d6;</i>
                                 <span class="nav-link-text">Money Transfer</span>
                             </a>
                         </li>
 
                         @*<li class="nav-item">*@
-                            <a class="nav-link active" asp-controller="Dashboard" asp-action="UserLoginHistory">
-                                <i class="ni ni-circle-08"></i>
-                                <span class="nav-link-text">My Login History</span>
-                            </a>
+                        <a class="nav-link active" asp-controller="Dashboard" asp-action="UserLoginHistory">
+                            <i class="ni ni-circle-08"></i>
+                            <span class="nav-link-text">My Login History</span>
+                        </a>
                         </li>
-                      @*  <li class="nav-item">*@
-                            <a class="nav-link active" asp-controller="Dashboard" asp-action="TranscationHistory">
-                                <i class= "fa fa-history"></i>
-                                <span class="nav-link-text">Transcation History</span>
-                            </a>
+                        @*  <li class="nav-item">*@
+                        <a class="nav-link active" asp-controller="Dashboard" asp-action="TranscationHistory">
+                            <i class="fa fa-history"></i>
+                            <span class="nav-link-text">Transcation History</span>
+                        </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Dashboard" asp-action="AddGiftCoupon">
@@ -101,69 +101,69 @@
                                 <span class="nav-link-text">Request a Loan</span>
                             </a>
                         </li>
-                       @* <li class="nav-item">
-                            <a class="nav-link" asp-controller="Dashboard" asp-action="LoanStatus">
-                                <i class="ni ni-bullet-list-67 text-default"></i>
-                                <span class="nav-link-text">Loan Status</span>
-                            </a>
+                        @* <li class="nav-item">
+                        <a class="nav-link" asp-controller="Dashboard" asp-action="LoanStatus">
+                        <i class="ni ni-bullet-list-67 text-default"></i>
+                        <span class="nav-link-text">Loan Status</span>
+                        </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="examples/login.html">
-                                <i class="ni ni-key-25 text-info"></i>
-                                <span class="nav-link-text">Login</span>
-                            </a>
+                        <a class="nav-link" href="examples/login.html">
+                        <i class="ni ni-key-25 text-info"></i>
+                        <span class="nav-link-text">Login</span>
+                        </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="examples/register.html">
-                                <i class="ni ni-circle-08 text-pink"></i>
-                                <span class="nav-link-text">Register</span>
-                            </a>
+                        <a class="nav-link" href="examples/register.html">
+                        <i class="ni ni-circle-08 text-pink"></i>
+                        <span class="nav-link-text">Register</span>
+                        </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="examples/upgrade.html">
-                                <i class="ni ni-send text-dark"></i>
-                                <span class="nav-link-text">Upgrade</span>
-                            </a>
+                        <a class="nav-link" href="examples/upgrade.html">
+                        <i class="ni ni-send text-dark"></i>
+                        <span class="nav-link-text">Upgrade</span>
+                        </a>
                         </li>*@
                     </ul>
                     <!-- Divider -->
-                   @* <hr class="my-3">*@
+                    @* <hr class="my-3">*@
                     <!-- Heading -->
-                  @*  <h6 class="navbar-heading p-0 text-muted">
-                        <span class="docs-normal">Documentation</span>
+                    @*  <h6 class="navbar-heading p-0 text-muted">
+                    <span class="docs-normal">Documentation</span>
                     </h6>*@
                     <!-- Navigation -->
-                  @*  <ul class="navbar-nav mb-md-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
-                                <i class="ni ni-spaceship"></i>
-                                <span class="nav-link-text">Getting started</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" target="_blank">
-                                <i class="ni ni-palette"></i>
-                                <span class="nav-link-text">Foundation</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html" target="_blank">
-                                <i class="ni ni-ui-04"></i>
-                                <span class="nav-link-text">Components</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
-                                <i class="ni ni-chart-pie-35"></i>
-                                <span class="nav-link-text">Plugins</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active active-pro" href="examples/upgrade.html">
-                                <i class="ni ni-send text-dark"></i>
-                                <span class="nav-link-text">Upgrade to PRO</span>
-                            </a>
-                        </li>
+                    @*  <ul class="navbar-nav mb-md-3">
+                    <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+                    <i class="ni ni-spaceship"></i>
+                    <span class="nav-link-text">Getting started</span>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" target="_blank">
+                    <i class="ni ni-palette"></i>
+                    <span class="nav-link-text">Foundation</span>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html" target="_blank">
+                    <i class="ni ni-ui-04"></i>
+                    <span class="nav-link-text">Components</span>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                    <i class="ni ni-chart-pie-35"></i>
+                    <span class="nav-link-text">Plugins</span>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active active-pro" href="examples/upgrade.html">
+                    <i class="ni ni-send text-dark"></i>
+                    <span class="nav-link-text">Upgrade to PRO</span>
+                    </a>
+                    </li>
                     </ul>*@
                 </div>
             </div>
@@ -179,10 +179,10 @@
                     <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
                         <div class="form-group mb-0">
                             @*<div class="input-group input-group-alternative input-group-merge">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
-                                </div>
-                                <input class="form-control" placeholder="Search" type="text">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Search" type="text">
                             </div>*@
                         </div>
                         <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
@@ -207,168 +207,168 @@
                             </a>
                         </li>
                         @*<li class="nav-item dropdown">
-                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ni ni-bell-55"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
-                                <!-- Dropdown header -->
-                                <div class="px-3 py-3">
-                                    <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
-                                </div>
-                                <!-- List group -->
-                                <div class="list-group list-group-flush">
-                                    <a href="#!" class="list-group-item list-group-item-action">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <!-- Avatar -->
-                                                <img alt="Image placeholder" src="~/argon/assets/img/theme/team-1.jpg" class="avatar rounded-circle">
-                                            </div>
-                                            <div class="col ml--2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="mb-0 text-sm">@Context.Session.GetString("UserName")</h4>
-                                                    </div>
-                                                    <div class="text-right text-muted">
-                                                        <small>2 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#!" class="list-group-item list-group-item-action">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <!-- Avatar -->
-                                                <img alt="Image placeholder" src="~/argon/assets/img/theme/team-2.jpg" class="avatar rounded-circle">
-                                            </div>
-                                            <div class="col ml--2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="mb-0 text-sm">@Context.Session.GetString("UserName")</h4>
-                                                    </div>
-                                                    <div class="text-right text-muted">
-                                                        <small>3 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#!" class="list-group-item list-group-item-action">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <!-- Avatar -->
-                                                <img alt="Image placeholder" src="~/argon/assets/img/theme/team-3.jpg" class="avatar rounded-circle">
-                                            </div>
-                                            <div class="col ml--2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="mb-0 text-sm">@Context.Session.GetString("UserName")</h4>
-                                                    </div>
-                                                    <div class="text-right text-muted">
-                                                        <small>5 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="text-sm mb-0">Your posts have been liked a lot.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#!" class="list-group-item list-group-item-action">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <!-- Avatar -->
-                                                <img alt="Image placeholder" src="~/argon/assets/img/theme/team-4.jpg" class="avatar rounded-circle">
-                                            </div>
-                                            <div class="col ml--2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="mb-0 text-sm">John Snow</h4>
-                                                    </div>
-                                                    <div class="text-right text-muted">
-                                                        <small>2 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#!" class="list-group-item list-group-item-action">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <!-- Avatar -->
-                                                <img alt="Image placeholder" src="~/argon/assets/img/theme/team-5.jpg" class="avatar rounded-circle">
-                                            </div>
-                                            <div class="col ml--2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="mb-0 text-sm">John Snow</h4>
-                                                    </div>
-                                                    <div class="text-right text-muted">
-                                                        <small>3 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- View all -->
-                                <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
-                            </div>
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="ni ni-bell-55"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
+                        <!-- Dropdown header -->
+                        <div class="px-3 py-3">
+                        <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
+                        </div>
+                        <!-- List group -->
+                        <div class="list-group list-group-flush">
+                        <a href="#!" class="list-group-item list-group-item-action">
+                        <div class="row align-items-center">
+                        <div class="col-auto">
+                        <!-- Avatar -->
+                        <img alt="Image placeholder" src="~/argon/assets/img/theme/team-1.jpg" class="avatar rounded-circle">
+                        </div>
+                        <div class="col ml--2">
+                        <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                        <h4 class="mb-0 text-sm">@Context.Session.GetString("UserName")</h4>
+                        </div>
+                        <div class="text-right text-muted">
+                        <small>2 hrs ago</small>
+                        </div>
+                        </div>
+                        <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                        </div>
+                        </div>
+                        </a>
+                        <a href="#!" class="list-group-item list-group-item-action">
+                        <div class="row align-items-center">
+                        <div class="col-auto">
+                        <!-- Avatar -->
+                        <img alt="Image placeholder" src="~/argon/assets/img/theme/team-2.jpg" class="avatar rounded-circle">
+                        </div>
+                        <div class="col ml--2">
+                        <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                        <h4 class="mb-0 text-sm">@Context.Session.GetString("UserName")</h4>
+                        </div>
+                        <div class="text-right text-muted">
+                        <small>3 hrs ago</small>
+                        </div>
+                        </div>
+                        <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
+                        </div>
+                        </div>
+                        </a>
+                        <a href="#!" class="list-group-item list-group-item-action">
+                        <div class="row align-items-center">
+                        <div class="col-auto">
+                        <!-- Avatar -->
+                        <img alt="Image placeholder" src="~/argon/assets/img/theme/team-3.jpg" class="avatar rounded-circle">
+                        </div>
+                        <div class="col ml--2">
+                        <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                        <h4 class="mb-0 text-sm">@Context.Session.GetString("UserName")</h4>
+                        </div>
+                        <div class="text-right text-muted">
+                        <small>5 hrs ago</small>
+                        </div>
+                        </div>
+                        <p class="text-sm mb-0">Your posts have been liked a lot.</p>
+                        </div>
+                        </div>
+                        </a>
+                        <a href="#!" class="list-group-item list-group-item-action">
+                        <div class="row align-items-center">
+                        <div class="col-auto">
+                        <!-- Avatar -->
+                        <img alt="Image placeholder" src="~/argon/assets/img/theme/team-4.jpg" class="avatar rounded-circle">
+                        </div>
+                        <div class="col ml--2">
+                        <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                        <h4 class="mb-0 text-sm">John Snow</h4>
+                        </div>
+                        <div class="text-right text-muted">
+                        <small>2 hrs ago</small>
+                        </div>
+                        </div>
+                        <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                        </div>
+                        </div>
+                        </a>
+                        <a href="#!" class="list-group-item list-group-item-action">
+                        <div class="row align-items-center">
+                        <div class="col-auto">
+                        <!-- Avatar -->
+                        <img alt="Image placeholder" src="~/argon/assets/img/theme/team-5.jpg" class="avatar rounded-circle">
+                        </div>
+                        <div class="col ml--2">
+                        <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                        <h4 class="mb-0 text-sm">John Snow</h4>
+                        </div>
+                        <div class="text-right text-muted">
+                        <small>3 hrs ago</small>
+                        </div>
+                        </div>
+                        <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
+                        </div>
+                        </div>
+                        </a>
+                        </div>
+                        <!-- View all -->
+                        <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+                        </div>
                         </li>*@
-                      @*  <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ni ni-ungroup"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
-                                <div class="row shortcuts px-4">
-                                    <a href="#!" class="col-4 shortcut-item">
-                                        <span class="shortcut-media avatar rounded-circle bg-gradient-red">
-                                            <i class="ni ni-calendar-grid-58"></i>
-                                        </span>
-                                        <small>Calendar</small>
-                                    </a>
-                                    <a href="#!" class="col-4 shortcut-item">
-                                        <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
-                                            <i class="ni ni-email-83"></i>
-                                        </span>
-                                        <small>Email</small>
-                                    </a>
-                                    <a href="#!" class="col-4 shortcut-item">
-                                        <span class="shortcut-media avatar rounded-circle bg-gradient-info">
-                                            <i class="ni ni-credit-card"></i>
-                                        </span>
-                                        <small>Payments</small>
-                                    </a>
-                                    <a href="#!" class="col-4 shortcut-item">
-                                        <span class="shortcut-media avatar rounded-circle bg-gradient-green">
-                                            <i class="ni ni-books"></i>
-                                        </span>
-                                        <small>Reports</small>
-                                    </a>
-                                    <a href="#!" class="col-4 shortcut-item">
-                                        <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
-                                            <i class="ni ni-pin-3"></i>
-                                        </span>
-                                        <small>Maps</small>
-                                    </a>
-                                    <a href="#!" class="col-4 shortcut-item">
-                                        <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
-                                            <i class="ni ni-basket"></i>
-                                        </span>
-                                        <small>Shop</small>
-                                    </a>
-                                </div>
-                            </div>
+                        @*  <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="ni ni-ungroup"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
+                        <div class="row shortcuts px-4">
+                        <a href="#!" class="col-4 shortcut-item">
+                        <span class="shortcut-media avatar rounded-circle bg-gradient-red">
+                        <i class="ni ni-calendar-grid-58"></i>
+                        </span>
+                        <small>Calendar</small>
+                        </a>
+                        <a href="#!" class="col-4 shortcut-item">
+                        <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
+                        <i class="ni ni-email-83"></i>
+                        </span>
+                        <small>Email</small>
+                        </a>
+                        <a href="#!" class="col-4 shortcut-item">
+                        <span class="shortcut-media avatar rounded-circle bg-gradient-info">
+                        <i class="ni ni-credit-card"></i>
+                        </span>
+                        <small>Payments</small>
+                        </a>
+                        <a href="#!" class="col-4 shortcut-item">
+                        <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                        <i class="ni ni-books"></i>
+                        </span>
+                        <small>Reports</small>
+                        </a>
+                        <a href="#!" class="col-4 shortcut-item">
+                        <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
+                        <i class="ni ni-pin-3"></i>
+                        </span>
+                        <small>Maps</small>
+                        </a>
+                        <a href="#!" class="col-4 shortcut-item">
+                        <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
+                        <i class="ni ni-basket"></i>
+                        </span>
+                        <small>Shop</small>
+                        </a>
+                        </div>
+                        </div>
                         </li>*@
                     </ul>
                     <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
                         <li class="nav-item dropdown">
                             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="media align-items-center">
-                                    <span class="fa fa-user" >
-                                     @*<img alt="Image placeholder" src="~/argon/assets/img/theme/team-4.jpg">*@
+                                    <span class="fa fa-user">
+                                        @*<img alt="Image placeholder" src="~/argon/assets/img/theme/team-4.jpg">*@
                                     </span>
                                     <div class="media-body  ml-2  d-none d-lg-block">
                                         <span class="mb-0 text-sm  font-weight-bold">@Context.Session.GetString("UserName")</span>
@@ -398,7 +398,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a asp-controller="User" asp-action="Signout" class="dropdown-item">
                                     <i class="ni ni-user-run"></i>
-                                    <span >Signout</span>
+                                    <span>Signout</span>
                                 </a>
                             </div>
                         </li>
@@ -407,26 +407,25 @@
             </div>
         </nav>
         <!-- Header -->
-    
-            @RenderBody()
-   
+        @RenderBody()
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 
-    <!-- Core -->
-    <script src="~/argon/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="~/argon/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/argon/assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="~/argon/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="~/argon/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-    <!-- Optional JS -->
-    <script src="~/argon/assets/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="~/argon/assets/vendor/chart.js/dist/Chart.extension.js"></script>
-    <!-- Argon JS -->
-    <script src="~/argon/assets/js/argon.js?v=1.2.0"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+
+        <!-- Core -->
+        <script src="~/argon/assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="~/argon/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/argon/assets/vendor/js-cookie/js.cookie.js"></script>
+        <script src="~/argon/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="~/argon/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+        <!-- Optional JS -->
+        <script src="~/argon/assets/vendor/chart.js/dist/Chart.min.js"></script>
+        <script src="~/argon/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+        <!-- Argon JS -->
+        <script src="~/argon/assets/js/argon.js?v=1.2.0"></script>
         @if (Context.Session.GetString("Suspended") == "True")
         {
             <script>
@@ -445,7 +444,7 @@
                         </div>
                         <div class="modal-body text-center">
                             <p>Your account has been <strong>suspended</strong> and you cannot access the dashboard.</p>
-                            <p>Please <a href="/ContactUs" class="contact-link">contact the administrator</a> for assistance.</p>
+                            <p>Please <a asp-controller="Home" asp-action="ContactUS">contact the administrator</a> for assistance.</p>
                         </div>
                         <div class="modal-footer justify-content-center">
                             <a asp-controller="User" asp-action="Signout" class="btn btn-primary w-100">Signout</a>
@@ -457,6 +456,37 @@
             <!-- Overlay to Disable Dashboard -->
             <div class="overlay"></div>
         }
+        @if (Context.Session.GetString("EmailStatus") != "True")
+        {
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    var suspendModal = new bootstrap.Modal(document.getElementById("suspendedModal"));
+                    suspendModal.show();
+                });
+            </script>
+
+            <!-- Suspended User Popup Modal -->
+            <div class="modal fade" id="suspendedModal" tabindex="-1" aria-labelledby="suspendedModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-white text-center">
+                            <h5 class="modal-title w-100">Access Restricted</h5>
+                        </div>
+                        <div class="modal-body text-center">
+                            <p>Your Email is  <strong>Not Verified</strong> please be Verified.</p>
+                            <p>Please <a asp-controller="User" asp-action="VerifyEmail">Verify Email</a>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <a asp-controller="User" asp-action="Signout" class="btn btn-primary w-100">Signout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overlay to Disable Dashboard -->
+            <div class="overlay"></div>
+        }
+
     </div>
 </body>
 </html>
