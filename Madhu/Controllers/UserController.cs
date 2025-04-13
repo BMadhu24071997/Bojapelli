@@ -50,6 +50,11 @@ namespace Madhu.Controllers
 
                         HttpContext.Session.SetString("UserName", isUserExists.UserName);
                         HttpContext.Session.SetString("SignIn", "True");
+
+                        if (isUserExists.EmailStatus == "Verified")
+                        {
+                            HttpContext.Session.SetString("EmailStatus", "True");
+                        }
                         if (isUserExists.UserStatus == "Suspended")
                         {
                             HttpContext.Session.SetString("Suspended", "True");
@@ -166,6 +171,7 @@ namespace Madhu.Controllers
                 HttpContext.Session.SetString("UserName", "");
                 HttpContext.Session.SetString("SignIn", "False");
                 HttpContext.Session.SetString("Suspended", "False");
+                HttpContext.Session.SetString("EmailStatus", "False");
                 if (HttpContext.Session.GetString("SignIn") == "False")
                 {
 
@@ -281,12 +287,150 @@ namespace Madhu.Controllers
                 return View();
             }
         }
+        // verifying Email from Signin user
+        public IActionResult VerifyEmail()
+        {
+            var _userobj = _db.Users.Find(HttpContext.Session.GetString("UserName"));
 
+            EmailVerification emailVerification = new EmailVerification();
+
+            emailVerification.Email = _userobj.Email;
+            emailVerification.UserName = _userobj.UserName;
+
+            return View(emailVerification);
+        }
+
+        //generating OTP for Email Verification 
+        public IActionResult SendOTP(string? UserName)
+        {
+            var _userobj = _db.Users.Find(UserName);
+
+            EmailVerification emailVerification = new EmailVerification();
+
+            Random random = new Random();
+
+            var _isOTPAlready = _db.VerifyEmail.Find(UserName);
+
+            emailVerification.Email = _userobj.Email;
+            emailVerification.UserName = _userobj.UserName;
+            if (_isOTPAlready != null)
+            {
+                _isOTPAlready.OTP = random.Next(0, 1000000);
+                _isOTPAlready.OTPGeneratedDateTime = DateTime.Now;
+            }
+            else
+            {
+                emailVerification.OTP = random.Next(0, 1000000);
+                emailVerification.OTPGeneratedDateTime = DateTime.Now;
+            }
+           
+
+
+            //sending email (OTP)
+
+            ContactFormModel contactUs = new ContactFormModel();
+
+            contactUs.Email = "madhu.up.mb@gmail.com";
+            contactUs.Password = "shxwodfmjunnqjua"; // Email SMTP(simple Mail Transfer Protocol)
+            contactUs.Subject = "Your Email verification OTP";
+            contactUs.ToEmail = emailVerification.Email;
+
+            if (_isOTPAlready != null)
+            {
+                contactUs.Body = "Your Email verification OTP is:" + _isOTPAlready.OTP;
+            }
+            else
+            {
+                contactUs.Body = "Your Email verification OTP is:" + emailVerification.OTP;
+            }
+            
+
+
+            using (MailMessage mm = new MailMessage(contactUs.Email, contactUs.ToEmail))
+            {
+                mm.Subject = contactUs.Subject;
+                mm.Body = contactUs.Body;
+                mm.IsBodyHtml = false;
+                using (SmtpClient smtp = new SmtpClient())
+                {
+                    NetworkCredential NetworkCred = new NetworkCredential(contactUs.Email, contactUs.Password);
+                    smtp.UseDefaultCredentials = false;
+                    smtp.EnableSsl = true;
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.Credentials = NetworkCred;
+                    smtp.Port = 587;
+                    smtp.Send(mm);
+                    ViewBag.Message = "OTP is sent your Email";
+
+                    HttpContext.Session.SetString("OTPGenerated", "True");
+
+                    if(_isOTPAlready ==null)
+                    {
+                        _db.VerifyEmail.Add(emailVerification);
+                    }
+                    else
+                    {
+                        _db.VerifyEmail.Update(_isOTPAlready);
+                    }
+                    
+                    _db.SaveChanges();
+
+
+                    return RedirectToAction("VerifyEmail", "User");
+
+                }
+
+            }
+
+        }
+
+        [HttpPost]
+        public IActionResult VerifyEmail(EmailVerification enteredDetails)
+        {
+
+            var _userobj = _db.Users.Find(HttpContext.Session.GetString("UserName"));
+            var _isOTPAlready = _db.VerifyEmail.Find(_userobj.UserName);
+
+
+            if (_isOTPAlready.OTP == enteredDetails.OTP)
+            {
+                var timeSpan = DateTime.Now - _isOTPAlready.OTPGeneratedDateTime;
+
+                if (timeSpan.TotalSeconds > 180)
+                {
+                    ModelState.AddModelError("OTP", "OTP expired, please request new OTP, new OTP is valid for 3 minutes only");
+                    return View();
+                }
+
+                _userobj.EmailStatus = "Verified";
+                _db.Users.Update(_userobj);
+                _db.SaveChanges();
+                HttpContext.Session.SetString("EmailStatus", "True");
+                ViewBag.messageOtp = "OTP Verified Sucessfully";
+
+                if (HttpContext.Session.GetString("EmailStatus") == "True")
+                {
+                    return RedirectToAction("Index", "Dashboard");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("OTP", "OTP does not match, please enter correct OTP");
+                return View();
+            }
+
+            return View();
+
+        }
 
     }
-
-
 }
+
+
+
+
+
+
 
 
 
