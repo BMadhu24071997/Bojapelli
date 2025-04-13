@@ -19,6 +19,7 @@ namespace Madhu.Models
 
         public DbSet<MyLoanRequest> LoanRequest { get; set; }
         public DbSet<MyGiftVoucher> GiftVoucher { get; set; }
+        public DbSet<EmailVerification>VerifyEmail { get; set; }
 
     }
 }
