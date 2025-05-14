@@ -1,4 +1,6 @@
+using Madhu.Interfaces;
 using Madhu.Models;
+using Madhu.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Madhu
@@ -21,6 +23,9 @@ namespace Madhu
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(120);
             });
+            builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+
 
             var app = builder.Build();
 

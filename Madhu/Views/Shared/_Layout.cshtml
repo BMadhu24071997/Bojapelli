@@ -73,6 +73,7 @@
                         </ul>
                     </li>*@
                     <li><a class="nav-link scrollto" asp-controller="Home" asp-action="ContactUs">Contact</a></li>
+                    <li><a class="nav-link scrollto" asp-controller="Track" asp-action="Index">Track Order</a></li>
                      @if (Context.Session.GetString("SignIn") == "True")
                     {
                         <li><a class="getstarted scrollto" asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>

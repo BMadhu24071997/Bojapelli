@@ -59,6 +59,10 @@ namespace Madhu.Controllers
                         {
                             HttpContext.Session.SetString("Suspended", "True");
                         }
+                        if (isUserExists.ContentEditor == true)
+                        {
+                            HttpContext.Session.SetString("ContentEditor", "True");
+                        }
 
                         if (HttpContext.Session.GetString("SignIn") == "True")
                         {
@@ -96,6 +100,7 @@ namespace Madhu.Controllers
                             _db.SaveChanges();
 
                         }
+                        
 
                         // User Admin 
 
@@ -103,7 +108,7 @@ namespace Madhu.Controllers
                         {
 
                             HttpContext.Session.SetString("Admin", "True");
-                            return RedirectToAction("Admin", "Dashboard");
+                            return RedirectToAction("Index", "Admin");
                         }
                         else
                         {
@@ -169,9 +174,11 @@ namespace Madhu.Controllers
                 var isUserExists = _db.Users.Find(HttpContext.Session.GetString("UserName"));
 
                 HttpContext.Session.SetString("UserName", "");
+                HttpContext.Session.SetString("Admin", "False");
                 HttpContext.Session.SetString("SignIn", "False");
                 HttpContext.Session.SetString("Suspended", "False");
                 HttpContext.Session.SetString("EmailStatus", "False");
+                HttpContext.Session.SetString("ContentEditor", "False");
                 if (HttpContext.Session.GetString("SignIn") == "False")
                 {
 

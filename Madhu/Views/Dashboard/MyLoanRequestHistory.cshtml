@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<MyLoanRequest>
 @{
-    ViewData["Title"] = "AllLoanRequests";
+    ViewData["Title"] = "MyLoanRequestHistory";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
-
 <!DOCTYPE html>
 <html>
 
@@ -294,7 +293,7 @@
                 <div class="card">
                     <!-- Card header -->
                     <div class="card-header border-0">
-                        <h3 class="mb-0">All Loan Request</h3>
+                        <h3 class="mb-0">My Loan Request</h3>
                     </div>
                     <!-- Light table -->
                     <div class="table-responsive">
@@ -320,22 +319,22 @@
                                             @if (data.LoanRequestStatus == "Pending")
                                             {
 
-                                            <td><a class="btn btn-primary" asp-controller="Admin" asp-action="LoanApprove" asp-route-LoanID="@data.LoanId">Approve</a></td>
+                                           @* <td><a class="btn btn-primary" asp-controller="Admin" asp-action="LoanApprove" asp-route-LoanID="@data.LoanId">Approve</a></td>
                                             <td><a class="btn btn-primary" asp-controller="Admin" asp-action="LoanReject" asp-route-LoanID="@data.LoanId">Reject</a></td>
-                                        
+*@
                                             }
 
                                     </tr>
-                                     
 
-                                    
+
+
                                 </tbody>
                                 }
                             </thead>
-                        
+
                         </table>
 
-                      
+
 
                         @*  </div>
                         <!-- Card footer -->
@@ -409,4 +408,3 @@
 </body>
 
 </html>
-

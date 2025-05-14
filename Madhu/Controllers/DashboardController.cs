@@ -223,7 +223,6 @@ namespace Madhu.Controllers
         }
 
 
-
         //User Loan Request
         public IActionResult LoanRequest()
         {

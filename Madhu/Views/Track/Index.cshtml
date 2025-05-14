@@ -1,0 +1,100 @@
+﻿@model List<Track>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Madhu.cshtml";
+}
+
+<div class="main-content">
+    <!-- Header -->
+    <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+        <div class="container">
+            <div class="header-body text-center mb-7">
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-lg-6 col-md-8 px-5">
+                        <h1 class="text-white">Track Orders</h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="separator separator-bottom separator-skew zindex-100">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container mt--8 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7">
+                <div class="card bg-secondary border-0 mb-0">
+                    <div class="card-header bg-transparent pb-5">
+
+                        <div class="card-body px-lg-5 py-lg-5">
+                            <div class="text-center text-muted mb-4">
+                            </div>
+                            @if (Model.Any())
+                            {
+                                <h3 style="text-align:center">Order history - @ViewBag.id</h3>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Order Status</th>
+                                            <th>Date & Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (Model != null && Model.Any())
+                                        {
+
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>@item.Status</td>
+                                                    <td>@item.Date.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <p>Model is empty</p>
+                                            <tr>
+                                                <td colspan="4" class="text-center">No tracking history found.</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            <div class="container mt-5">
+                                @if (Model.Any())
+                                {
+                                    <h2>Search another Order Id</h2>
+                                }
+                                else
+                                {
+                                    <h2>Enter Order Id</h2>
+                                }
+
+                                <form method="get" action="/Track/Index">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="orderId" class="form-control" placeholder="Enter Order ID" required>
+                                        <button class="btn btn-primary" type="submit">Search</button>
+                                    </div>
+                                </form>
+
+                                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                                {
+                                    <div class="alert alert-warning">@ViewBag.Message</div>
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

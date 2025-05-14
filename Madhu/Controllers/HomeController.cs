@@ -36,6 +36,15 @@ namespace Madhu.Controllers
         {
             return View();
         }
+        public IActionResult Errors()
+        {
+            return View();
+        }
+        public IActionResult ErrorsAmount()
+        {
+            return View();
+        }
+
 
         public IActionResult ContactUs()
         {
