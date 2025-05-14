@@ -421,7 +421,39 @@
                                     </span>
                                     <div class="media-body  ml-2  d-none d-lg-block">
                                         <span class="mb-0 text-sm  font-weight-bold">@Context.Session.GetString("UserName")</span>
+                                       @* @if ((Context.Session.GetInt32("CartCount") ?? 0) > 0)
+                                        {
+                                            <a style="background-color: RGB(94, 114, 228);" type="button"
+                                               class="nav-link scrollto d-flex align-items-center justify-content-center"
+                                               asp-controller="Cart" asp-action="Index">
+                                                <img src="~/Argon-assets/img/cart.png"
+                                                     class="navbar-brand-img img-fluid"
+                                                     style="max-height: 40px; max-width: 100px;" />
+                                                <span class="badge badge-light ml-2">@Context.Session.GetInt32("CartCount")</span>
+                                            </a>
+                                        }*@
+
                                     </div>
+                                   
+                                </div>
+                                <div class="media align-items-center">
+                                    
+                                    <div class="media-body  ml-2  d-none d-lg-block">
+                                       
+                                        @if ((Context.Session.GetInt32("CartCount") ?? 0) > 0)
+                                        {
+                                            <a style="background-color: RGB(94, 114, 228);" type="button"
+                                               class="nav-link scrollto d-flex align-items-center justify-content-center"
+                                               asp-controller="Cart" asp-action="Index">
+                                                <img src="~/assets/img/cart.png"
+                                                     class="navbar-brand-img img-fluid"
+                                                     style="max-height: 40px; max-width: 100px;" />
+                                                <span class="badge badge-light ml-2">@Context.Session.GetInt32("CartCount")</span>
+                                            </a>
+                                        }
+
+                                    </div>
+
                                 </div>
                             </a>
                             <div class="dropdown-menu  dropdown-menu-right ">
