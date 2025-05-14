@@ -223,6 +223,7 @@ namespace Madhu.Controllers
         }
 
 
+
         //User Loan Request
         public IActionResult LoanRequest()
         {
@@ -251,15 +252,18 @@ namespace Madhu.Controllers
             return View(request);
 
         }
-        public IActionResult Admin()
+
+
+        public IActionResult MyLoanRequestHistory()
         {
 
-            IEnumerable<MyUsers> myuser = _db.Users;
-
-
-            return View(myuser);
+            IEnumerable<MyLoanRequest> _myLoanRequests = _db.LoanRequest.Where(u => u.WhomRequested.Contains(HttpContext.Session.GetString("UserName"))).OrderByDescending(u => u.LastModifiedDate);
+            return View(_myLoanRequests);
 
         }
+
+
+
 
 
     }
