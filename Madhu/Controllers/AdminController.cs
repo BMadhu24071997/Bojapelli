@@ -14,7 +14,12 @@ namespace Madhu.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+
+            IEnumerable<MyUsers> myuser = _db.Users;
+
+
+            return View(myuser);
+
         }
         public IActionResult AllLoanRequests()
         {
