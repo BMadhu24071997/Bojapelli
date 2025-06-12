@@ -16,8 +16,6 @@ namespace Madhu.Controllers
         {
 
             IEnumerable<MyUsers> myuser = _db.Users;
-
-
             return View(myuser);
 
         }
